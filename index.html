@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrediFácil Brasil | O Guia Definitivo de Finanças, Cartões e Crédito</title>
+    <title>Finvoce Brasil | O Guia Definitivo de Finanças, Cartões e Crédito</title>
     <style>
         :root {
             --primary: #0f172a;
@@ -67,6 +67,7 @@
             display: flex;
             gap: 1.5rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -80,6 +81,18 @@
 
         .nav-links a:hover {
             color: white;
+        }
+
+        /* Botão de Afiliado na Navbar */
+        .btn-nav-affiliate {
+            background-color: #f59e0b !important;
+            color: #0f172a !important;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+        .btn-nav-affiliate:hover {
+            background-color: #d97706 !important;
         }
 
         /* Header */
@@ -366,7 +379,7 @@
             color: var(--accent);
         }
 
-        /* Artigos Completos (Densos e Profundos) */
+        /* Artigos Completos */
         .article-container {
             max-width: 840px;
             margin: 0 auto;
@@ -563,13 +576,19 @@
 
     <!-- Navegação -->
     <nav>
-        <a onclick="changeView('home')" class="nav-brand">CrediFácil Brasil</a>
+        <a onclick="changeView('home')" class="nav-brand">Finvoce Brasil</a>
         <ul class="nav-links">
             <li><a onclick="changeView('home')">Início</a></li>
             <li><a onclick="changeView('article-cartao')">Cartões</a></li>
             <li><a onclick="changeView('article-score')">Score</a></li>
             <li><a onclick="changeView('terms')">Termos</a></li>
             <li><a onclick="changeView('privacy')">Privacidade</a></li>
+            
+            <!-- 🔗             <li>
+                <a href=https://www.awin1.com/cread.php?awinmid=128757&awinaffid=3107629&ued=https%3A%2F%2Fhellosafe.com.br target="_blank" rel="noopener" class="btn-nav-affiliate">
+                    Comparar no HelloSafe
+                </a>
+            </li>
         </ul>
     </nav>
 
@@ -589,13 +608,17 @@
                         <span class="carousel-badge">Análise Especial</span>
                         <h2>Como Conseguir Limites Reais sem Anuidade</h2>
                         <p>Descubra os critérios que os grandes emissores usam para aprovar contas digitais.</p>
-                        <a onclick="changeView('article-cartao')" class="carousel-btn">Ler Artigo Completo</a>
+                        
+                        <!-- 🔗 2º LUGAR PARA COLOCAR O LINK (Slide 1 do Carrossel) -->
+                        <a href=https://www.awin1.com/cread.php?awinmid=128757&awinaffid=3107629&ued=https%3A%2F%2Fhellosafe.com.br target="_blank" rel="noopener" class="carousel-btn">Comparar no HelloSafe</a>
                     </div>
                     <div class="carousel-slide">
                         <span class="carousel-badge">Guia Definitivo</span>
                         <h2>Destravando o Score de Crédito</h2>
                         <p>Estratégias práticas recomendadas para elevar sua pontuação de forma orgânica.</p>
-                        <a onclick="changeView('article-score')" class="carousel-btn">Ver Estratégias</a>
+                        
+                        <!-- 🔗 3º LUGAR PARA COLOCAR O LINK (Slide 2 do Carrossel) -->
+                        <a href=https://www.awin1.com/cread.php?awinmid=128757&awinaffid=3107629&ued=https%3A%2F%2Fhellosafe.com.br target="_blank" rel="noopener" class="carousel-btn">Ver Melhores Ofertas</a>
                     </div>
                     <div class="carousel-controls">
                         <button class="c-control-btn" onclick="prevSlide()">&#10094;</button>
@@ -663,7 +686,7 @@
         </div>
     </div>
 
-    <!-- VIEW: ARTIGO CARTÕES (DENSO) -->
+    <!-- VIEW: ARTIGO CARTÕES -->
     <div id="view-article-cartao" class="view-section">
         <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
             <div class="article-container">
@@ -703,14 +726,16 @@
                     <div class="cta-box">
                         <h3>Pronto para comparar as melhores opções?</h3>
                         <p>Preparamos um ranking com as instituições que apresentam as maiores taxas de aprovação inicial para novos clientes.</p>
-                        <a onclick="alert('Aqui entrarão os links oficiais de indicação e parceiros.')" class="btn-cta">Acessar Ranking de Cartões</a>
+                        
+                        <!-- 🔗 4º LUGAR PARA COLOCAR O LINK (Fim do Artigo de Cartões) -->
+                        <a href=https://www.awin1.com/cread.php?awinmid=128757&awinaffid=3107629&ued=https%3A%2F%2Fhellosafe.com.br target="_blank" rel="noopener" class="btn-cta">Acessar Ranking de Cartões</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- VIEW: ARTIGO SCORE (DENSO) -->
+    <!-- VIEW: ARTIGO SCORE -->
     <div id="view-article-score" class="view-section">
         <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
             <div class="article-container">
@@ -747,14 +772,16 @@
                     <div class="cta-box">
                         <h3>Quer acompanhar sua pontuação com segurança?</h3>
                         <p>Monitore seu CPF de forma gratuita e entenda quais fatores precisam de ajustes imediatos.</p>
-                        <a onclick="alert('Aqui entrará a parceria oficial de consulta de score.')" class="btn-cta">Consultar Meu Score Agora</a>
+                        
+                        <!-- 
+                        <a href=https://www.awin1.com/cread.php?awinmid=128757&awinaffid=3107629&ued=https%3A%2F%2Fhellosafe.com.br target="_blank" rel="noopener" class="btn-cta">Consultar Meu Score Agora</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- VIEW: ARTIGO ORÇAMENTO (DENSO) -->
+    <!-- VIEW: ARTIGO ORÇAMENTO -->
     <div id="view-article-orcamento" class="view-section">
         <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
             <div class="article-container">
@@ -801,9 +828,9 @@
                 <h2>Termos de Uso</h2>
                 <p>Última atualização: 2026</p>
                 <h3>1. Aceitação dos Termos</h3>
-                <p>Ao acessar e navegar pelo portal CrediFácil Brasil, você concorda integralmente com os termos e condições descritos nesta página.</p>
+                <p>Ao acessar e navegar pelo portal Finvoce Brasil, você concorda integralmente com os termos e condições descritos nesta página.</p>
                 <h3>2. Isenção de Responsabilidade Financeira</h3>
-                <p>O CrediFácil Brasil atua estritamente como um portal independente de conteúdo educacional, informativo e de comparação de produtos financeiros. Não realizamos concessão de crédito, análise de empréstimos ou emissão de cartões financeiros de forma direta.</p>
+                <p>O Finvoce Brasil atua estritamente como um portal independente de conteúdo educacional, informativo e de comparação de produtos financeiros. Não realizamos concessão de crédito, análise de empréstimos ou emissão de cartões financeiros de forma direta.</p>
             </div>
         </div>
     </div>
@@ -826,7 +853,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <h4>CrediFácil Brasil</h4>
+                <h4>Finvoce Brasil</h4>
                 <p style="font-size: 0.85rem; color: #94a3b8;">Portal independente de comparação e educação sobre produtos financeiros.</p>
             </div>
             <div class="footer-col">
@@ -846,7 +873,7 @@
             </div>
         </div>
         <div class="footer-disclaimer">
-            <p>&copy; 2026 CrediFácil Brasil. Todos os direitos reservados. Canal informativo independente.</p>
+            <p>&copy; 2026 Finvoce Brasil. Todos os direitos reservados. Canal informativo independente.</p>
         </div>
     </footer>
 
