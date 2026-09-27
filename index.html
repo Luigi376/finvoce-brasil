@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R247CZXWEW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R247CZXWEW');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrediFácil Brasil | O Guia Definitivo de Finanças, Cartões e Crédito</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3.5rem 1rem;
+            text-align: center;
+            box-shadow: inset 0 -10px 15px -10px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Views System */
+        .view-section {
+            display: none;
+        }
+        .view-section.active-view {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Layout */
+        .main-layout {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Carrossel */
+        .carousel-container {
+            position: relative;
+            background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+            overflow: hidden;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-slide {
+            display: none;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-slide h2 {
+            font-size: 1.7rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .carousel-slide p {
+            font-size: 1rem;
+            color: #eff6ff;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--accent);
+            padding: 0.75rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .carousel-btn:hover {
+            background-color: #f1f5f9;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .c-control-btn {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .c-control-btn:hover {
+            background: rgba(255,255,255,0.6);
+        }
+
+        /* Cards & Grid */
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.75rem;
+        }
+
+        .grid-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .sidebar-widget ul {
+            list-style: none;
+        }
+
+        .sidebar-widget ul li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-widget ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .sidebar-widget ul li a:hover {
+            color: var(--accent);
+        }
+
+        .calc-group {
+            margin-bottom: 0.8rem;
+        }
+
+        .calc-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .calc-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .calc-result {
+            background: #f1f5f9;
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
+        /* Artigos Completos (Densos e Profundos) */
+        .article-container {
+            max-width: 840px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .article-header h1 {
+            font-size: 2.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .article-content h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.6rem;
+            font-size: 1.02rem;
+        }
+
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-box p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #22c55e;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background-color: #16a34a;
+        }
+
+        /* Páginas Legais */
+        .legal-container {
+            max-width: 840px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .legal-container h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .legal-container h3 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .legal-container p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-disclaimer {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #334155;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav>
+        <a onclick="changeView('home')" class="nav-brand">CrediFácil Brasil</a>
+        <ul class="nav-links">
+            <li><a onclick="changeView('home')">Início</a></li>
+            <li><a onclick="changeView('article-cartao')">Cartões</a></li>
+            <li><a onclick="changeView('article-score')">Score</a></li>
+            <li><a onclick="changeView('terms')">Termos</a></li>
+            <li><a onclick="changeView('privacy')">Privacidade</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Educação Financeira e Crédito Sem Segredos</h1>
+        <p>Análises profundas e imparciais para ajudar você a conquistar sua liberdade financeira.</p>
+    </header>
+
+    <!-- VIEW: HOME -->
+    <div id="view-home" class="view-section active-view">
+        <div class="main-layout">
+            <main>
+                <!-- Carrossel -->
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <span class="carousel-badge">Análise Especial</span>
+                        <h2>Como Conseguir Limites Reais sem Anuidade</h2>
+                        <p>Descubra os critérios que os grandes emissores usam para aprovar contas digitais.</p>
+                        <a onclick="changeView('article-cartao')" class="carousel-btn">Ler Artigo Completo</a>
+                    </div>
+                    <div class="carousel-slide">
+                        <span class="carousel-badge">Guia Definitivo</span>
+                        <h2>Destravando o Score de Crédito</h2>
+                        <p>Estratégias práticas recomendadas para elevar sua pontuação de forma orgânica.</p>
+                        <a onclick="changeView('article-score')" class="carousel-btn">Ver Estratégias</a>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="c-control-btn" onclick="prevSlide()">&#10094;</button>
+                        <button class="c-control-btn" onclick="nextSlide()">&#10095;</button>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Guias e Artigos Profundos</h2>
+
+                <div class="grid-articles">
+                    <div class="card">
+                        <div>
+                            <div class="card-icon">💳</div>
+                            <h3>O Guia Definitivo do Primeiro Cartão</h3>
+                            <p>Análise completa sobre como construir histórico e evitar recusas em instituições financeiras.</p>
+                        </div>
+                        <a onclick="changeView('article-cartao')" class="card-link">Ler Guia (7 min) &rarr;</a>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <div class="card-icon">📈</div>
+                            <h3>Como Destravar seu Score em 30 Dias</h3>
+                            <p>Entenda o funcionamento real dos birôs de crédito e o passo a passo para limpar sua imagem de vez.</p>
+                        </div>
+                        <a onclick="changeView('article-score')" class="card-link">Ler Guia (6 min) &rarr;</a>
+                    </div>
+
+                    <div class="card">
+                        <div>
+                            <div class="card-icon">🛡️</div>
+                            <h3>Organização Financeira Real</h3>
+                            <p>Aprenda a aplicar o método de divisão de renda sem restrições extremas e fuja do rotativo.</p>
+                        </div>
+                        <a onclick="changeView('article-orcamento')" class="card-link">Ler Guia (5 min) &rarr;</a>
+                    </div>
+                </div>
+            </main>
+
+            <aside>
+                <div class="sidebar-widget">
+                    <h3>Simulador de Reserva</h3>
+                    <div class="calc-group">
+                        <label>Guardando por mês (R$):</label>
+                        <input type="number" id="calc-valor" value="300" oninput="calcularJuros()">
+                    </div>
+                    <div class="calc-group">
+                        <label>Meses poupando:</label>
+                        <input type="number" id="calc-meses" value="12" oninput="calcularJuros()">
+                    </div>
+                    <div class="calc-result" id="calc-output">
+                        Total estimado: R$ 3.735,00
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>Tópicos Populares</h3>
+                    <ul>
+                        <li><a onclick="changeView('article-cartao')">&bull; Melhores cartões para autônomos</a></li>
+                        <li><a onclick="changeView('article-score')">&bull; Mitos e verdades sobre consulta de CPF</a></li>
+                        <li><a onclick="changeView('article-orcamento')">&bull; Como sair do endividamento no cartão</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- VIEW: ARTIGO CARTÕES (DENSO) -->
+    <div id="view-article-cartao" class="view-section">
+        <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
+            <div class="article-container">
+                <div class="breadcrumb">
+                    <a onclick="changeView('home')">Início</a> &gt; Cartões &gt; Guia Definitivo
+                </div>
+                <div class="article-header">
+                    <h1>O Guia Definitivo para Conseguir seu Primeiro Cartão sem Anuidade</h1>
+                    <div class="article-meta">Atualizado em 2026 &bull; Leitura densa de 7 minutos</div>
+                </div>
+                <div class="article-content">
+                    <p>Obter aprovação em um bom cartão de crédito sem pagar taxas abusivas de anuidade pode parecer um obstáculo intransponível para quem está começando a construir sua vida financeira. No entanto, os algoritmos dos bancos avaliam critérios muito específicos que, quando compreendidos, facilitam drasticamente a liberação de crédito.</p>
+                    
+                    <h2>1. Por que os bancos negam solicitações iniciais?</h2>
+                    <p>O principal motivo de recusa não é a falta de renda em si, mas sim a assimetria de informações. Quando você solicita um cartão em uma instituição onde nunca movimentou recursos, o sistema não possui dados comportamentais suficientes para mensurar o seu risco de inadimplência.</p>
+                    <ul>
+                        <li><strong>Consultas Excessivas:</strong> Pedir vários cartões em uma mesma semana aciona alertas vermelhos nos birôs de crédito.</li>
+                        <li><strong>Incompatibilidade Cadastral:</strong> Renda declarada discrepante da movimentação real informada no sistema financeiro.</li>
+                        <li><strong>Ausência de Histórico:</strong> CPFs totalmente "limpos" por falta de uso geram tanta desconfiança quanto CPFs negativados.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>💡 Estratégia de Relacionamento Prévio</h3>
+                        <p>Antes de solicitar o cartão de crédito em uma fintech ou banco tradicional, abra uma conta digital gratuita e concentre o pagamento de suas contas básicas (água, luz, telefone) e pequenas compras cotidianas nela por pelo menos 30 dias. Isso gera dados internos de confiança.</p>
+                    </div>
+
+                    <h2>2. O Passo a Passo Prático para Garantir Aprovação</h2>
+                    <ol>
+                        <li><strong>Atualize seus dados cadastrais:</strong> Certifique-se de que sua renda informada nos órgãos de proteção ao crédito está atualizada e condizente com a realidade.</li>
+                        <li><strong>Ative o Cadastro Positivo:</strong> Garanta que seu histórico de pagamentos pontuais esteja visível para o mercado.</li>
+                        <li><strong>Inicie com cartões modulados ou pré-pagos de transição:</strong> Contas que oferecem limite garantido (onde o valor investido vira limite) ajudam a construir o comportamento de uso exigido pelos algoritmos.</li>
+                    </ol>
+
+                    <h2>3. Armadilhas Comuns a Evitar</h2>
+                    <p>Evite cair na tentação de aceitar ofertas de cartões com anuidades elevadas sob a promessa de "limites maiores garantidos". Muitas vezes, esses produtos possuem taxas ocultas que corroem o seu orçamento logo nos primeiros meses de uso.</p>
+
+                    <div class="cta-box">
+                        <h3>Pronto para comparar as melhores opções?</h3>
+                        <p>Preparamos um ranking com as instituições que apresentam as maiores taxas de aprovação inicial para novos clientes.</p>
+                        <a onclick="alert('Aqui entrarão os links oficiais de indicação e parceiros.')" class="btn-cta">Acessar Ranking de Cartões</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: ARTIGO SCORE (DENSO) -->
+    <div id="view-article-score" class="view-section">
+        <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
+            <div class="article-container">
+                <div class="breadcrumb">
+                    <a onclick="changeView('home')">Início</a> &gt; Score &gt; Guia de Pontuação
+                </div>
+                <div class="article-header">
+                    <h1>Como Destravar seu Score de Crédito em Poucos Passos</h1>
+                    <div class="article-meta">Atualizado em 2026 &bull; Leitura densa de 6 minutos</div>
+                </div>
+                <div class="article-content">
+                    <p>O score de crédito funciona como um termômetro da sua reputação financeira perante o mercado. Uma pontuação alta não apenas facilita a aprovação de empréstimos e financiamentos, mas garante taxas de juros consideravelmente menores.</p>
+
+                    <h2>O que realmente impacta negativamente a sua pontuação?</h2>
+                    <p>Muitas pessoas acreditam que apenas ter o nome sujo afeta o score, mas diversos hábitos silenciosos travam a pontuação:</p>
+                    <ul>
+                        <li><strong>Buscas frequentes de crédito:</strong> Simular empréstimos ou cartões em múltiplos locais gera consultas recorrentes no CPF.</li>
+                        <li><strong>Contas sempre no nome de terceiros:</strong> Pagar contas essenciais que estão cadastradas no CPF de outra pessoa não ajuda a construir o seu próprio histórico.</li>
+                        <li><strong>Pagamentos realizados após o vencimento:</strong> Mesmo que dentro do mesmo mês, atrasos recorrentes sinalizam instabilidade financeira.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>💡 O Poder do Pagamento Antecipado</h3>
+                        <p>Pagar suas faturas e contas de consumo um ou dois dias **antes** do vencimento envia um sinal positivo robusto para os algoritmos de pontuação, destacando o seu rigor com o planejamento financeiro.</p>
+                    </div>
+
+                    <h2>Plano de Ação para Recuperar o Score</h2>
+                    <ol>
+                        <li>Regularize pendências financeiras antigas utilizando plataformas de renegociação transparentes.</li>
+                        <li>Mantenha seus dados de contato e renda sempre idênticos em todas as instituições.</li>
+                        <li>Utilize o cartão de crédito de forma consciente, comprometendo no máximo 30% da sua linha de limite disponível.</li>
+                    </ol>
+
+                    <div class="cta-box">
+                        <h3>Quer acompanhar sua pontuação com segurança?</h3>
+                        <p>Monitore seu CPF de forma gratuita e entenda quais fatores precisam de ajustes imediatos.</p>
+                        <a onclick="alert('Aqui entrará a parceria oficial de consulta de score.')" class="btn-cta">Consultar Meu Score Agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: ARTIGO ORÇAMENTO (DENSO) -->
+    <div id="view-article-orcamento" class="view-section">
+        <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
+            <div class="article-container">
+                <div class="breadcrumb">
+                    <a onclick="changeView('home')">Início</a> &gt; Finanças &gt; Orçamento
+                </div>
+                <div class="article-header">
+                    <h1>Organização Financeira Básica: O Método Realista</h1>
+                    <div class="article-meta">Atualizado em 2026 &bull; Leitura densa de 5 minutos</div>
+                </div>
+                <div class="article-content">
+                    <p>Organizar as finanças pessoais não exige restrições radicais ou o fim de todo o lazer. O segredo para manter um orçamento saudável está na previsibilidade e na distribuição inteligente dos ganhos líquidos mensais.</p>
+
+                    <h2>Aplicando a Metodologia 50-30-20</h2>
+                    <p>Reconhecida globalmente por sua simplicidade e eficácia, essa regra divide o seu ganho líquido em três fatias bem definidas:</p>
+                    <ul>
+                        <li><strong>50% para Necessidades Vitais:</strong> Aluguel, contas de consumo (água, luz, internet), mercado, saúde e transporte básico.</li>
+                        <li><strong>30% para Estilo de Vida e Desejos:</strong> Jantar fora, assinaturas de streaming, lazer e compras pessoais.</li>
+                        <li><strong>20% para Construção de Futuro:</strong> Investimentos, quitação acelerada de dívidas e formação de reserva de emergência.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h3>💡 O Perigo do Crédito Rotativo</h3>
+                        <p>Utilizar o cartão de crédito como extensão da renda e pagar apenas o "mínimo da fatura" é a rota mais rápida para o endividamento crônico devido às taxas de juros compostos mais altas do mercado brasileiro.</p>
+                    </div>
+
+                    <h2>Como dar o primeiro passo hoje</h2>
+                    <p>Anote todas as suas despesas fixas e variáveis durante os próximos 30 dias. Saber exatamente para onde o dinheiro flui é o único caminho capaz de transformar o estresse financeiro em tranquilidade a médio e longo prazo.</p>
+
+                    <div class="cta-box">
+                        <h3>Quer simular quanto pode guardar?</h3>
+                        <p>Utilize nossa calculadora interativa na página inicial para planejar seu próximo ano de reservas.</p>
+                        <a onclick="changeView('home')" class="btn-cta">Ir para o Simulador</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: TERMOS -->
+    <div id="view-terms" class="view-section">
+        <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
+            <div class="legal-container">
+                <h2>Termos de Uso</h2>
+                <p>Última atualização: 2026</p>
+                <h3>1. Aceitação dos Termos</h3>
+                <p>Ao acessar e navegar pelo portal CrediFácil Brasil, você concorda integralmente com os termos e condições descritos nesta página.</p>
+                <h3>2. Isenção de Responsabilidade Financeira</h3>
+                <p>O CrediFácil Brasil atua estritamente como um portal independente de conteúdo educacional, informativo e de comparação de produtos financeiros. Não realizamos concessão de crédito, análise de empréstimos ou emissão de cartões financeiros de forma direta.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: PRIVACIDADE -->
+    <div id="view-privacy" class="view-section">
+        <div style="max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem;">
+            <div class="legal-container">
+                <h2>Política de Privacidade</h2>
+                <p>Última atualização: 2026</p>
+                <h3>1. Coleta e Uso de Informações</h3>
+                <p>Respeitamos rigorosamente a sua privacidade. Quaisquer dados fornecidos voluntariamente em nossos formulários ou canais de comunicação são utilizados exclusivamente para o envio de conteúdos informativos selecionados.</p>
+                <h3>2. Cookies e Anúncios</h3>
+                <p>Utilizamos cookies de navegação para otimizar a experiência do usuário e gerenciar exibições de anúncios relevantes por meio de redes parceiras autorizadas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>CrediFácil Brasil</h4>
+                <p style="font-size: 0.85rem; color: #94a3b8;">Portal independente de comparação e educação sobre produtos financeiros.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a onclick="changeView('home')">Início</a></li>
+                    <li><a onclick="changeView('article-cartao')">Cartões</a></li>
+                    <li><a onclick="changeView('article-score')">Score</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a onclick="changeView('terms')">Termos de Uso</a></li>
+                    <li><a onclick="changeView('privacy')">Política de Privacidade</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-disclaimer">
+            <p>&copy; 2026 CrediFácil Brasil. Todos os direitos reservados. Canal informativo independente.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function changeView(viewId) {
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active-view');
+            });
+            document.getElementById('view-' + viewId).classList.add('active-view');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 6000);
+
+        function calcularJuros() {
+            const valor = parseFloat(document.getElementById('calc-valor').value) || 0;
+            const meses = parseInt(document.getElementById('calc-meses').value) || 0;
+            const total = valor * meses * 1.035; 
+            document.getElementById('calc-output').innerText = `Total estimado: R$ ${total.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        }
+    </script>
+</body>
+</html>
